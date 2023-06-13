@@ -5,21 +5,34 @@ import "testing"
 func TestPlaceShips(t *testing.T) {
 
 	// should place the ships on a battleground corectly
-	// ships := "1,1:2,0:2,3:3,4:4,3"
+	ships := "1,1:2,0:2,3:3,4:4,3"
 
-	// GetNewPlayer()
+	m := 5
+	s := 5
+	T := 1
 
-	// ground := make([][]string, 5)
+	player := GetNewPlayer(m, s, T)
 
-	// // Initialize battleground with 'E' byte.
+	player.PlaceShips(ships)
 
-	// for i := 0; i < M; i++ {
-	// 	r := make([]string, M)
-	// 	for j := 0; j < M; j++ {
-	// 		r[j] = "_"
-	// 	}
-	// 	ground[i] = r
-	// }
+	// Assert stuff
+	// Incomplete stuff
+	expected := [][]string{
+		{},
+		{},
+		{},
+		{},
+		{},
+	}
+	got := player.Battleground
+
+	for i := 0; i < m; i++ {
+		for j := 0; j < m; j++ {
+			if got[i][j] == expected[i][j] {
+				t.Error("Not correctly placed")
+			}
+		}
+	}
 
 }
 
